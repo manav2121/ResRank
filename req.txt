@@ -1,4 +1,14 @@
-streamlit==1.27.0
-scikit-learn==1.2.2
+# core numerical libs first (wheels)
+numpy==1.26.4
+scipy==1.11.3
 pandas==2.1.1
-PyPDF2==3.1.0
+
+# scikit-learn (use wheel-friendly version)
+scikit-learn==1.2.2
+
+# web UI
+streamlit==1.27.0
+
+# file handling
+PyPDF2==3.1.1
+docx2txt==0.8
