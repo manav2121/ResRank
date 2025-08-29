@@ -27,11 +27,11 @@ def get_file_b64(file_bytes):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="ResRank", layout="wide")
-st.title("📊 ResRank - Resume Ranking App")
+st.title("🥇 ResRank - Resume Ranking App")
 
-job_description = st.text_area("Paste Job Description:", height=100)
+job_description = st.text_area(" Job Description:", height=100)
 uploaded_files = st.file_uploader(
-    "Upload Resumes (PDF/DOCX/TXT)", type=["pdf","docx","txt"], accept_multiple_files=True
+    "Upload Resumes ", type=["pdf","docx","txt"], accept_multiple_files=True
 )
 
 if "resume_data" not in st.session_state:
@@ -57,7 +57,7 @@ if uploaded_files and job_description:
     # Sort candidates by similarity descending
     sorted_candidates = sorted(zip(candidates, similarities), key=lambda x: x[1], reverse=True)
 
-    st.subheader("Candidate Rankings")
+    st.subheader("Candidate Rankings :")
     
     # Create table using columns for interactivity
     st.markdown(
@@ -87,4 +87,5 @@ if uploaded_files and job_description:
                 text = extract_text_bytes(file_bytes, candidate)
                 st.text_area("Resume Content", text, height=800)
             st.download_button("⬇️ Download Resume", data=file_bytes, file_name=candidate)
+
 
